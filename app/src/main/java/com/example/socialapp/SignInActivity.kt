@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
+import com.airbnb.lottie.LottieAnimationView
 import com.example.socialapp.daos.UserDao
 import com.example.socialapp.models.User
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -31,10 +33,17 @@ class SignInActivity : AppCompatActivity() {
     private val TAG = "SignInActivity Tag"
     private lateinit var googleSignInClient: GoogleSignInClient
     private lateinit var auth: FirebaseAuth
+    private lateinit var animation: LottieAnimationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_in)
+
+        supportActionBar?.hide()
+
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
+        animation = findViewById(R.id.googleLogo)
 
         // Configure Google Sign In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -48,6 +57,7 @@ class SignInActivity : AppCompatActivity() {
 
         signInButton.setOnClickListener {
             signIn()
+            animation.visibility = View.GONE
         }
 
     }
@@ -101,7 +111,10 @@ class SignInActivity : AppCompatActivity() {
     private fun updateUI(firebaseUser: FirebaseUser?) {
         if(firebaseUser != null) {
             //photo url hamara uri hota hai islie uske aage toString() use kiya hai.
-            val user = User(firebaseUser.uid,firebaseUser.displayName,firebaseUser.photoUrl.toString())
+            val user = firebaseUser.displayName?.let {
+                User(firebaseUser.uid,
+                    it,firebaseUser.photoUrl.toString())
+            }
             val usersDao = UserDao()
             usersDao.addUser(user)
 

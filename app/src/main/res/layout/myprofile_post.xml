@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:id="@+id/myImage"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="35dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/deleteButton"
+            android:background="@drawable/ic_delete_forever_24"/>
+
+        <TextView
+            android:id="@+id/myName"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/myImage"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginLeft="19dp"
+            android:textSize="16sp"
+            android:textColor="#212121"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/createdAtProfile"
+            android:layout_width="200dp"
+            android:textSize="12sp"
+            android:textColor="#696969"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/myImage"
+            app:layout_constraintTop_toBottomOf="@id/myName"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="19dp" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:background="@drawable/edittext_round_shape"
+            android:layout_height="wrap_content"
+            android:id="@+id/postImageProfile"
+            app:layout_constraintBottom_toTopOf="@+id/postTitleProfile"
+            app:layout_constraintTop_toBottomOf="@+id/createdAtProfile"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="14dp"/>
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/myImage"
+            android:id="@+id/postTitleProfile"
+            android:textSize="16sp"
+            android:layout_marginTop="14dp"
+            android:textColor="#212121" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

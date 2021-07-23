@@ -32,6 +32,8 @@
         <TextView
             android:id="@+id/createdAt"
             android:layout_width="0dp"
+            android:textSize="12sp"
+            android:textColor="#696969"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toRightOf="@id/userImage"
             app:layout_constraintRight_toRightOf="parent"
@@ -40,12 +42,16 @@
             android:layout_marginLeft="12dp" />
 
         <ImageView
-            android:layout_width="280dp"
-            android:layout_height="250dp"
+            android:layout_width="0dp"
+            android:background="@drawable/edittext_round_shape"
+            android:layout_height="wrap_content"
             android:id="@+id/postImage"
+            app:layout_constraintBottom_toTopOf="@+id/postTitle"
             app:layout_constraintTop_toBottomOf="@+id/userImage"
             app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
             android:layout_marginTop="12dp"/>
+
 
         <TextView
             android:layout_width="0dp"
@@ -74,6 +80,28 @@
             app:layout_constraintTop_toTopOf="@id/likeButton"
             android:layout_marginLeft="6dp"
             app:layout_constraintBottom_toBottomOf="@id/likeButton" />
+
+        <ImageView
+            android:id="@+id/commentButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src = "@drawable/ic_baseline_comment_24"
+            app:layout_constraintLeft_toLeftOf="@id/postTitle"
+            app:layout_constraintTop_toBottomOf="@id/postTitle"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginLeft="80dp" />
+
+        <ImageView
+            android:id="@+id/shareButton"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src = "@drawable/ic_baseline_near_me_24"
+            app:layout_constraintLeft_toLeftOf="@id/postTitle"
+            app:layout_constraintTop_toBottomOf="@id/postTitle"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="160dp"
+            android:layout_marginLeft="160dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
